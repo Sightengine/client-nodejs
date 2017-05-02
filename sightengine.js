@@ -15,7 +15,7 @@ function makeClient(api_user, api_secret) {
   };
 
   client.image = (image) => {
-    let url = endpoint + '1.0/check.json';
+    var url = endpoint + '1.0/check.json';
 
     if (image.indexOf("http://") == 0 || image.indexOf("https://") == 0) {
       const data = { 'models': _models.join(), 'url': image, 'api_user': apiUser, 'api_secret': apiSecret };
@@ -43,7 +43,7 @@ function makeClient(api_user, api_secret) {
   };
 
   client.video = (video, callback) => {
-    url =  endpoint + '1.0/video/moderation.json';
+    var url =  endpoint + '1.0/video/moderation.json';
     const data = { 'stream_url': video, 'callback_url': callback, 'api_user': apiUser, 'api_secret': apiSecret };
     const querystring = encodeQueryData(data);
 
@@ -55,7 +55,7 @@ function makeClient(api_user, api_secret) {
   };
 
   client.feedback = (model, modelClass, image) => {
-    let url = endpoint + '1.0/feedback.json'
+    var url = endpoint + '1.0/feedback.json'
 
     if(image.indexOf("http://") == 0 || image.indexOf("https://") == 0) {
       const data = { 'model': model, 'class': modelClass, 'url': image, 'api_user': apiUser, 'api_secret': apiSecret };
@@ -87,8 +87,8 @@ function makeClient(api_user, api_secret) {
 }
 
 function encodeQueryData(data) {
-  let ret = [];
-  for (let d in data)
+  var ret = [];
+  for (var d in data)
     ret.push(encodeURIComponent(d) + '=' + encodeURIComponent(data[d]));
   return ret.join('&');
 }
