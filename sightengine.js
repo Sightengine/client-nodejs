@@ -9,7 +9,7 @@ function makeClient(api_user, api_secret) {
   const apiSecret = api_secret;
   var _models = [];
 
-  client.check = (models = []) => {
+  client.check = (models) => {
     _models = models;
     return client;
   };
