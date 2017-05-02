@@ -4,7 +4,7 @@
   "description": "",
   "main": "sightengine.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha tests.js"
   },
   "repository": {
     "type": "git",
@@ -19,5 +19,8 @@
   "dependencies": {
     "form-data": "^2.1.4",
     "node-fetch": "^1.6.3"
+  },
+  "devDependencies": {
+    "mocha": "^3.3.0"
   }
 }

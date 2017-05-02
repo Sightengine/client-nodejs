@@ -22,9 +22,9 @@ function makeClient(api_user, api_secret) {
       const querystring = encodeQueryData(data);
 
       return fetch(url + '?' + querystring).then((res) => {
-        return res.text();
+        return res.json();
       }).catch((error) => {
-        return error;
+        return error.json();
       });
     } else {
       var form = new FormData();
@@ -35,9 +35,9 @@ function makeClient(api_user, api_secret) {
       form.append('media', fs.createReadStream(image));
 
       return fetch(url, { method: 'POST', body: form}).then(function(res) {
-        return res.text();
+        return res.json();
       }).catch((error) => {
-        return error;
+        return error.json();
       });
     }
   };
@@ -48,9 +48,9 @@ function makeClient(api_user, api_secret) {
     const querystring = encodeQueryData(data);
 
     return fetch(url + '?' + querystring).then((res) => {
-      return res.text();
+      return res.json();
     }).catch((error) => {
-      return error;
+      return error.json();
     });
   };
 
@@ -62,9 +62,9 @@ function makeClient(api_user, api_secret) {
       const querystring = encodeQueryData(data);
 
       return fetch(url + '?' + querystring).then((res) => {
-        return res.text();
+        return res.json();
       }).catch((error) => {
-        return error;
+        return error.json();
       });
     } else {
       var form = new FormData();
@@ -76,9 +76,9 @@ function makeClient(api_user, api_secret) {
       form.append('media', fs.createReadStream(image));
 
       return fetch(url, { method: 'POST', body: form}).then(function(res) {
-        return res.text();
+        return res.json();
       }).catch((error) => {
-        return error;
+        return error.json();
       });
     };
   }

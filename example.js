@@ -1,7 +1,7 @@
 var sightengine = require('./sightengine')('api_user','api_secret');
 
 
-sightengine.feedback('nudity', 'safe', '/path/to/image').then((result) => {
+sightengine.feedback('nudity', 'safe', 'http://img09.deviantart.net/2bd0/i/2009/276/c/9/magic_forrest_wallpaper_by_goergen.jpg').then((result) => {
   console.log(result)
 }).catch((error) => {
   console.log(error);
