@@ -1,18 +1,22 @@
 var sightengine = require('./sightengine')('api_user','api_secret');
 
+// feedback
 
-sightengine.feedback('nudity', 'safe', 'http://img09.deviantart.net/2bd0/i/2009/276/c/9/magic_forrest_wallpaper_by_goergen.jpg').then((result) => {
+sightengine.feedback('nudity', 'safe', 'https://sightengine.com/assets/img/examples/example5.jpg').then((result) => {
   console.log(result)
 }).catch((error) => {
   console.log(error);
 });
 
+// moderation image
 
-sightengine.check(['nudity', 'type', 'properties','wad','face']).image('http://img09.deviantart.net/2bd0/i/2009/276/c/9/magic_forrest_wallpaper_by_goergen.jpg').then(function(result) {
+sightengine.check(['nudity', 'type', 'properties','wad','face']).image('https://sightengine.com/assets/img/examples/example5.jpg').then(function(result) {
   console.log(result)
 }).catch(function(error) {
   console.log(error)
 });
+
+// moderation video
 
 sightengine.check(['nudity', 'type', 'properties','wad','face']).video('http://www.quirksmode.org/html5/videos/big_buck_bunny.webm', 'http://requestb.in/1d097l71').then(function(result) {
   console.log(result)
