@@ -21,7 +21,7 @@ function makeClient(api_user, api_secret) {
       const data = { 'models': _models.join(), 'url': image, 'api_user': apiUser, 'api_secret': apiSecret };
       const querystring = encodeQueryData(data);
 
-      return fetch(url + '?' + querystring).then((res) => {
+      return fetch(url + '?' + querystring, { headers: { 'user-agent': 'SE-SDK-NODEJS 1'} }).then((res) => {
         return res.json();
       }).catch((error) => {
         return error.json();
@@ -34,7 +34,7 @@ function makeClient(api_user, api_secret) {
       form.append('models', _models.join());
       form.append('media', fs.createReadStream(image));
 
-      return fetch(url, { method: 'POST', body: form}).then(function(res) {
+      return fetch(url, { method: 'POST', body: form, headers: { 'user-agent': 'SE-SDK-NODEJS 1'}}).then(function(res) {
         return res.json();
       }).catch((error) => {
         return error.json();
@@ -47,7 +47,7 @@ function makeClient(api_user, api_secret) {
     const data = { 'stream_url': video, 'callback_url': callback, 'api_user': apiUser, 'api_secret': apiSecret };
     const querystring = encodeQueryData(data);
 
-    return fetch(url + '?' + querystring).then((res) => {
+    return fetch(url + '?' + querystring, { headers: { 'user-agent': 'SE-SDK-NODEJS 1'} }).then((res) => {
       return res.json();
     }).catch((error) => {
       return error.json();
@@ -61,7 +61,7 @@ function makeClient(api_user, api_secret) {
       const data = { 'model': model, 'class': modelClass, 'url': image, 'api_user': apiUser, 'api_secret': apiSecret };
       const querystring = encodeQueryData(data);
 
-      return fetch(url + '?' + querystring).then((res) => {
+      return fetch(url + '?' + querystring, { headers: { 'user-agent': 'SE-SDK-NODEJS 1'} }).then((res) => {
         return res.json();
       }).catch((error) => {
         return error.json();
@@ -75,7 +75,7 @@ function makeClient(api_user, api_secret) {
       form.append('model', model);
       form.append('media', fs.createReadStream(image));
 
-      return fetch(url, { method: 'POST', body: form}).then(function(res) {
+      return fetch(url, { method: 'POST', body: form, headers: { 'user-agent': 'SE-SDK-NODEJS 1'}}).then(function(res) {
         return res.json();
       }).catch((error) => {
         return error.json();
