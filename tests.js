@@ -18,13 +18,25 @@ describe('test feedback', function() {
 
 describe('test image moderation', function() {
   it('should return success', function() {
-    sightengine.check(['nudity', 'type', 'properties','wad','face']).image('https://sightengine.com/assets/img/examples/example5.jpg').then(function(result) {
+    sightengine.check(['nudity', 'type', 'properties','wad','face', 'celebrities']).image('https://sightengine.com/assets/img/examples/example5.jpg').then(function(result) {
       assert.equal('success', result.status);
     })
   });
 
   it('should return success', function() {
-    sightengine.check(['nudity', 'type', 'properties','wad','face']).image('/assets/image.jpg').then(function(result) {
+    sightengine.check(['nudity']).image('https://sightengine.com/assets/img/examples/example5.jpg').then(function(result) {
+      assert.equal('success', result.status);
+    })
+  });
+
+  it('should return success', function() {
+    sightengine.check(['nudity', 'type', 'properties','wad','face', 'celebrities']).image('/assets/image.jpg').then(function(result) {
+      assert.equal('success', result.status);
+    })
+  });
+
+  it('should return success', function() {
+    sightengine.check(['nudity']).image('/assets/image.jpg').then(function(result) {
       assert.equal('success', result.status);
     })
   });
