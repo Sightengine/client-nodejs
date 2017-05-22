@@ -18,7 +18,7 @@ npm install sightengine --save
 
 You will need your API USER and API SECRET to initialize the client. You can find both of them on your Sightengine account.
 ```javascript
-var sightengine = require('sightengine')('YOUR_API_USER', 'YOUR_API_SECRET');
+var sightengine = require('sightengine')('{api_user}', '{api_secret}');
 ```
 
 # Using Promises
