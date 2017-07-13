@@ -18,7 +18,7 @@ npm install sightengine --save
 
 You will need your API USER and API SECRET to initialize the client. You can find both of them on your Sightengine account.
 ```javascript
-var sightengine = require('sightengine')('YOUR_API_USER', 'YOUR_API_SECRET');
+var sightengine = require('sightengine')('{api_user}', '{api_secret}');
 ```
 
 # Using Promises
@@ -33,14 +33,14 @@ Several moderation engines are available for you to choose from (nudity detectio
 
 ```javascript
 // Detect nudity in an image
-sightengine.check(['nudity']).image('http://img09.deviantart.net/2bd0/i/2009/276/c/9/magic_forrest_wallpaper_by_goergen.jpg').then(function(result) {
+sightengine.check(['nudity']).set_url('http://img09.deviantart.net/2bd0/i/2009/276/c/9/magic_forrest_wallpaper_by_goergen.jpg').then(function(result) {
   // The result of the API
 }).catch(function(err) {
   // Error
 });
 
 // Detect nudity, weapons, alcohol, drugs and faces in an image, along with image properties and type
-sightengine.check(['nudity', 'type', 'properties','wad','face']).image('http://img09.deviantart.net/2bd0/i/2009/276/c/9/magic_forrest_wallpaper_by_goergen.jpg').then(function(result) {
+sightengine.check(['nudity', 'type', 'properties','wad','face']).set_url('http://img09.deviantart.net/2bd0/i/2009/276/c/9/magic_forrest_wallpaper_by_goergen.jpg').then(function(result) {
   // The result of the API
 }).catch(function(err) {
   // Error
@@ -50,14 +50,31 @@ sightengine.check(['nudity', 'type', 'properties','wad','face']).image('http://i
 ## Moderate a local image:
 ```javascript
 // Detect nudity in an image
-sightengine.check(['nudity']).image('/full/path/to/image.jpg').then(function(result) {
+sightengine.check(['nudity']).set_file('/full/path/to/image.jpg').then(function(result) {
   // The result of the API
 }).catch(function(err) {
   // Error
 });
 
 // Detect nudity, weapons, alcohol, drugs and faces in an image, along with image properties and type
-sightengine.check(['nudity', 'type', 'properties','wad','face']).image('/full/path/to/image.jpg').then(function(result) {
+sightengine.check(['nudity', 'type', 'properties','wad','face']).set_file('/full/path/to/image.jpg').then(function(result) {
+  // The result of the API
+}).catch(function(err) {
+  // Error
+});
+```
+
+## Moderate a binary image:
+```javascript
+// Detect nudity in an image
+sightengine.check(['nudity']).set_bytes(binary_image).then(function(result) {
+  // The result of the API
+}).catch(function(err) {
+  // Error
+});
+
+// Detect nudity, weapons, alcohol, drugs and faces in an image, along with image properties and type
+sightengine.check(['nudity', 'type', 'properties','wad','face']).set_bytes(binary_image).then(function(result) {
   // The result of the API
 }).catch(function(err) {
   // Error
