@@ -10,11 +10,25 @@ sightengine.feedback('nudity', 'safe', 'https://sightengine.com/assets/img/examp
 
 // moderation image
 
-sightengine.check(['nudity', 'type', 'properties','wad','face']).image('https://sightengine.com/assets/img/examples/example5.jpg').then(function(result) {
+sightengine.check(['nudity', 'type', 'properties','wad','face']).set_url('https://sightengine.com/assets/img/examples/example5.jpg').then(function(result) {
   console.log(result)
 }).catch(function(error) {
   console.log(error)
 });
+
+sightengine.check(['nudity', 'type', 'properties','wad','face']).set_file('/assets/image.jpg').then(function(result) {
+  console.log(result)
+}).catch(function(error) {
+  console.log(error)
+});
+
+
+sightengine.check(['nudity', 'type', 'properties','wad','face']).set_bytes(imageBinary).then(function(result) {
+  console.log(result)
+}).catch(function(error) {
+  console.log(error)
+});
+
 
 // moderation video
 
