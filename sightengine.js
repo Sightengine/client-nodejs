@@ -15,32 +15,48 @@ function makeClient(api_user, api_secret) {
     return client;
   };
 
-  client.image = (image) => {
+  client.set_url = (imageUrl) => {
+    const data = { 'models': _models.join(), 'url': imageUrl, 'api_user': apiUser, 'api_secret': apiSecret };
+    const querystring = encodeQueryData(data);
     var url = endpoint + '1.0/check.json';
 
-    if (image.indexOf("http://") == 0 || image.indexOf("https://") == 0) {
-      const data = { 'models': _models.join(), 'url': image, 'api_user': apiUser, 'api_secret': apiSecret };
-      const querystring = encodeQueryData(data);
+    return fetch(url + '?' + querystring, { headers: { 'user-agent': 'SE-SDK-NODEJS' + version} }).then((res) => {
+      return res.json();
+    }).catch((error) => {
+      return error.json();
+    });
+  };
 
-      return fetch(url + '?' + querystring, { headers: { 'user-agent': 'SE-SDK-NODEJS' + version} }).then((res) => {
-        return res.json();
-      }).catch((error) => {
-        return error.json();
-      });
-    } else {
-      var form = new FormData();
+  client.set_file = (file) => {
+    var form = new FormData();
+    var url = endpoint + '1.0/check.json';
 
-      form.append('api_user', apiUser);
-      form.append('api_secret', apiSecret);
-      form.append('models', _models.join());
-      form.append('media', fs.createReadStream(image));
+    form.append('api_user', apiUser);
+    form.append('api_secret', apiSecret);
+    form.append('models', _models.join());
+    form.append('media', fs.createReadStream(file));
 
-      return fetch(url, { method: 'POST', body: form, headers: { 'user-agent': 'SE-SDK-NODEJS' + version}}).then(function(res) {
-        return res.json();
-      }).catch((error) => {
-        return error.json();
-      });
-    }
+    return fetch(url, { method: 'POST', body: form, headers: { 'user-agent': 'SE-SDK-NODEJS' + version}}).then(function(res) {
+      return res.json();
+    }).catch((error) => {
+      return error.json();
+    });
+  };
+
+  client.set_bytes = (binaryImage) => {
+    const form = new FormData();
+    var url = endpoint + '1.0/check.json';
+
+    form.append('api_user', apiUser);
+    form.append('api_secret', apiSecret);
+    form.append('models', _models.join());
+    form.append('media', binaryImage);
+
+    return fetch(url, { method: 'POST', body: form, headers: { 'user-agent': 'SE-SDK-NODEJS' + version}}).then(function(res) {
+      return res.json();
+    }).catch((error) => {
+      return error.json();
+    });
   };
 
   client.video = (video, callback) => {
