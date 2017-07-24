@@ -67,7 +67,7 @@ describe('test image moderation', function() {
 
 describe('test video moderation', function() {
   it('should return success', function(done) {
-    this.timeout(7000);
+    this.timeout(15000);
     sightengine.check(['nudity', 'type', 'properties','wad','face']).video('http://www.quirksmode.org/html5/videos/big_buck_bunny.webm', 'http://requestb.in/1d097l71').then(function(result) {
       done(assert.equal('success', result.status))
     })
