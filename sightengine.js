@@ -23,7 +23,7 @@ function makeClient(api_user, api_secret) {
     return fetch(url + '?' + querystring, { headers: { 'user-agent': 'SE-SDK-NODEJS' + version} }).then((res) => {
       return res.json();
     }).catch((error) => {
-      return error.json();
+      return error;
     });
   };
 
@@ -39,7 +39,7 @@ function makeClient(api_user, api_secret) {
     return fetch(url, { method: 'POST', body: form, headers: { 'user-agent': 'SE-SDK-NODEJS' + version}}).then(function(res) {
       return res.json();
     }).catch((error) => {
-      return error.json();
+      return error;
     });
   };
 
@@ -55,7 +55,7 @@ function makeClient(api_user, api_secret) {
     return fetch(url, { method: 'POST', body: form, headers: { 'user-agent': 'SE-SDK-NODEJS' + version}}).then(function(res) {
       return res.json();
     }).catch((error) => {
-      return error.json();
+      return error;
     });
   };
 
@@ -67,7 +67,7 @@ function makeClient(api_user, api_secret) {
     return fetch(url + '?' + querystring, { headers: { 'user-agent': 'SE-SDK-NODEJS' + version} }).then((res) => {
       return res.json();
     }).catch((error) => {
-      return error.json();
+      return error;
     });
   };
 
@@ -81,7 +81,7 @@ function makeClient(api_user, api_secret) {
       return fetch(url + '?' + querystring, { headers: { 'user-agent': 'SE-SDK-NODEJS' + version} }).then((res) => {
         return res.json();
       }).catch((error) => {
-        return error.json();
+        return error;
       });
     } else {
       var form = new FormData();
@@ -95,7 +95,7 @@ function makeClient(api_user, api_secret) {
       return fetch(url, { method: 'POST', body: form, headers: { 'user-agent': 'SE-SDK-NODEJS' + version}}).then(function(res) {
         return res.json();
       }).catch((error) => {
-        return error.json();
+        return error;
       });
     };
   }
