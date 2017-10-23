@@ -32,7 +32,7 @@ sightengine.check(['nudity', 'type', 'properties','wad','face']).set_bytes(image
 
 // moderation video
 
-sightengine.check(['nudity', 'type', 'properties','wad','face']).video('http://www.quirksmode.org/html5/videos/big_buck_bunny.webm', 'http://requestb.in/1d097l71').then(function(result) {
+sightengine.check(['nudity', 'wad']).video('http://www.quirksmode.org/html5/videos/big_buck_bunny.webm', 'http://requestb.in/1d097l71').then(function(result) {
   console.log(result)
 }).catch(function(error) {
   console.log(error)

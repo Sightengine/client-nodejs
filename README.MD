@@ -85,7 +85,7 @@ sightengine.check(['nudity', 'type', 'properties','wad','face']).set_bytes(binar
 The first step to detect nudity in a video stream is to submit the video stream to the API.
 
 ```javascript
-sightengine.check(['nudity']).video('http://www.quirksmode.org/html5/videos/big_buck_bunny.webm', 'https://example.com/yourcallback').then(function(result) {
+sightengine.check(['nudity', 'weapon']).video('http://www.quirksmode.org/html5/videos/big_buck_bunny.webm', 'https://example.com/yourcallback').then(function(result) {
   // The result of the API
 }).catch(function(err) {
   // Error

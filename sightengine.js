@@ -60,8 +60,8 @@ function makeClient(api_user, api_secret) {
   };
 
   client.video = (video, callback) => {
-    var url =  endpoint + '1.0/video/moderation.json';
-    const data = { 'stream_url': video, 'callback_url': callback, 'api_user': apiUser, 'api_secret': apiSecret };
+    var url =  endpoint + '/1.0/video/check.json';
+    const data = { 'stream_url': video, 'models': _models.join(), 'callback_url': callback, 'api_user': apiUser, 'api_secret': apiSecret };
     const querystring = encodeQueryData(data);
 
     return fetch(url + '?' + querystring, { headers: { 'user-agent': 'SE-SDK-NODEJS' + version} }).then((res) => {
