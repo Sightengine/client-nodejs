@@ -59,21 +59,21 @@ describe('test image moderation', function() {
   });
 
   it('should return error', function(done) {
-    sightengine.check(['nudity', 'type', 'properties','wad','face']).set_url('https://sightengine.com/assets/img/examples/example99999.jpg').then(function(result) {
+    sightengine.check(['nudity','wad','properties','type','face','celebrities']).set_url('https://sightengine.com/assets/img/examples/example99999.jpg').then(function(result) {
       done(assert.equal('failure', result.status))
     })
   });
 });
 
-/*
+
 describe('test video moderation', function() {
   it('should return success', function(done) {
     this.timeout(60000);
-    sightengine.check(['nudity', 'type', 'properties','wad','face']).video('http://www.quirksmode.org/html5/videos/big_buck_bunny.webm', 'http://requestb.in/1d097l71').then(function(result) {
+    sightengine.check(['nudity','wad','properties','type','face','celebrities']).video('http://www.quirksmode.org/html5/videos/big_buck_bunny.webm', 'http://requestb.in/1d097l71').then(function(result) {
       done(assert.equal('success', result.status))
     })
   });
-}); */
+});
 
 
 
