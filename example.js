@@ -10,20 +10,20 @@ sightengine.feedback('nudity', 'safe', 'https://sightengine.com/assets/img/examp
 
 // moderation image
 
-sightengine.check(['nudity', 'type', 'properties','wad','face']).set_url('https://sightengine.com/assets/img/examples/example5.jpg').then(function(result) {
+sightengine.check(['nudity', 'type', 'properties','wad','faces']).set_url('https://sightengine.com/assets/img/examples/example5.jpg').then(function(result) {
   console.log(result)
 }).catch(function(error) {
   console.log(error)
 });
 
-sightengine.check(['nudity', 'type', 'properties','wad','face']).set_file('/assets/image.jpg').then(function(result) {
+sightengine.check(['nudity', 'type', 'properties','wad','faces']).set_file('/assets/image.jpg').then(function(result) {
   console.log(result)
 }).catch(function(error) {
   console.log(error)
 });
 
 
-sightengine.check(['nudity', 'type', 'properties','wad','face']).set_bytes(imageBinary).then(function(result) {
+sightengine.check(['nudity', 'type', 'properties','wad','faces']).set_bytes(imageBinary).then(function(result) {
   console.log(result)
 }).catch(function(error) {
   console.log(error)
@@ -32,7 +32,7 @@ sightengine.check(['nudity', 'type', 'properties','wad','face']).set_bytes(image
 
 // moderation video
 
-sightengine.check(['nudity', 'wad']).video('http://www.quirksmode.org/html5/videos/big_buck_bunny.webm', 'http://requestb.in/1d097l71').then(function(result) {
+sightengine.check(['nudity', 'type', 'properties','wad','faces']).video('http://www.quirksmode.org/html5/videos/big_buck_bunny.webm', 'http://requestb.in/1d097l71').then(function(result) {
   console.log(result)
 }).catch(function(error) {
   console.log(error)
