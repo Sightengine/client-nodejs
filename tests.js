@@ -68,8 +68,8 @@ describe('test image moderation', function() {
 
 describe('video moderation', function() {
   it('should return success', function(done) {
-    this.timeout(60000);
     sightengine.check(['nudity','wad','properties','type','face','celebrities']).video('https://sightengine.com/assets/stream/examples/funfair.mp4', 'http://requestb.in/1d097l71').then(function(result) {
+      this.timeout(60000);
       done(assert.equal('success', result.status))
     })
   });
