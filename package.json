@@ -4,7 +4,7 @@
   "description": "",
   "main": "sightengine.js",
   "scripts": {
-    "test": "mocha tests.js"
+    "test": "mocha --timeout 15000 tests.js"
   },
   "repository": {
     "type": "git",
