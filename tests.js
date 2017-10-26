@@ -72,6 +72,7 @@ describe('video moderation', () => {
     .check(['nudity', 'wad', 'properties', 'type', 'face', 'celebrities'])
     .video('https://sightengine.com/assets/stream/examples/funfair.mp4', 'http://requestb.in/1d097l71')
     .then(result => {
+      console.log(result);
       assert.equal('success', result.status)
     })
   })
