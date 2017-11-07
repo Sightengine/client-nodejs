@@ -43,14 +43,14 @@ function makeClient(api_user, api_secret) {
     });
   };
 
-  client.set_bytes = (binaryImage) => {
+  client.set_bytes = (binaryImage, filename) => {
     const form = new FormData();
     var url = endpoint + '1.0/check.json';
 
     form.append('api_user', apiUser);
     form.append('api_secret', apiSecret);
     form.append('models', _models.join());
-    form.append('media', binaryImage);
+    form.append('media', binaryImage, { filename : filename });
 
     return fetch(url, { method: 'POST', body: form, headers: { 'user-agent': 'SE-SDK-NODEJS' + version}}).then(function(res) {
       return res.json();

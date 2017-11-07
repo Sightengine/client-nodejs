@@ -55,7 +55,22 @@ describe('test image moderation', function() {
 
     sightengine.check(['nudity', 'type', 'properties','wad','faces', 'celebrities']).set_bytes(binaryImage).then(function(result) {
       done(assert.equal('success', result.status))
-    })
+    });
+  });
+
+  it('should return success', function(done) {
+    var i64 = new Buffer(fs.readFileSync(path.resolve(__dirname, 'assets', 'image.jpg'))).toString('base64');
+
+    sightengine.check(['nudity', 'type', 'properties','wad','faces', 'celebrities']).set_bytes(i64, 'image.png').then(function(result) {
+      done(assert.equal('success', result.status))
+    });
+
+   /*  Use a base64 string
+    var i64 = 'base64string';
+
+    sightengine.check(['nudity', 'type', 'properties','wad','faces', 'celebrities']).set_bytes(i64, 'image.png').then(function(result) {
+      done(assert.equal('success', result.status))
+    }); */
   });
 
   it('should return error', function(done) {
@@ -72,7 +87,6 @@ describe('video moderation', () => {
     .check(['nudity', 'wad', 'properties', 'type', 'face', 'celebrities'])
     .video('https://sightengine.com/assets/stream/examples/funfair.mp4', 'http://requestb.in/1d097l71')
     .then(result => {
-      console.log(result);
       assert.equal('success', result.status)
     })
   })

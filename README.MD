@@ -66,16 +66,42 @@ sightengine.check(['nudity', 'type', 'properties','wad','face']).set_file('/full
 
 ## Moderate a binary image:
 ```javascript
-// Detect nudity in an image
-sightengine.check(['nudity']).set_bytes(binary_image).then(function(result) {
+// Detect nudity, weapons, alcohol, drugs and faces in an image, along with image properties and type
+sightengine.check(['nudity', 'type', 'properties','wad','face']).set_bytes(binary_image).then(function(result) {
   // The result of the API
 }).catch(function(err) {
   // Error
 });
+```
 
-// Detect nudity, weapons, alcohol, drugs and faces in an image, along with image properties and type
-sightengine.check(['nudity', 'type', 'properties','wad','face']).set_bytes(binary_image).then(function(result) {
+### Use fs.createReadStream
+```javascript
+var binaryImage = fs.createReadStream(path.resolve(__dirname, 'assets', 'image.jpg'));
+
+sightengine.check(['nudity', 'type', 'properties','wad','faces', 'celebrities']).set_bytes(binaryImage).then(function(result) {
   // The result of the API
+}).catch(function(err) {
+  // Error
+});
+```
+
+### Use a base64 string
+```javascript
+// var i64 = image64string;
+
+sightengine.check(['nudity', 'type', 'properties','wad','faces', 'celebrities']).set_bytes(i64, 'image.png').then(function(result) {
+   // The result of the API
+}).catch(function(err) {
+  // Error
+});
+```
+
+### Use a base64 string from a file
+```javascript
+var i64 = new Buffer(fs.readFileSync(path.resolve(__dirname, 'assets', 'image.jpg'))).toString('base64');
+
+sightengine.check(['nudity', 'type', 'properties','wad','faces', 'celebrities']).set_bytes(i64, 'image.png').then(function(result) {
+   // The result of the API
 }).catch(function(err) {
   // Error
 });
