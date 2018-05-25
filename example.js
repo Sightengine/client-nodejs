@@ -32,13 +32,13 @@ sightengine.check(['nudity', 'type', 'properties','wad','faces']).set_bytes(imag
 
 // moderation video
 
-sightengine.check(['nudity', 'type', 'properties','wad','faces']).video('http://www.quirksmode.org/html5/videos/big_buck_bunny.webm', 'http://requestb.in/1d097l71').then(function(result) {
+sightengine.check(['nudity', 'type', 'properties','wad','faces']).video('https://sightengine.com/assets/stream/examples/funfair.mp4', 'http://requestb.in/1d097l71').then(function(result) {
   console.log(result)
 }).catch(function(error) {
   console.log(error)
 });
 
-sightengine.check(['nudity', 'type', 'properties','wad','faces']).video_sync('http://www.quirksmode.org/html5/videos/big_buck_bunny.webm').then(function(result) {
+sightengine.check(['nudity', 'type', 'properties','wad','faces']).video_sync('https://sightengine.com/assets/stream/examples/funfair.mp4').then(function(result) {
   console.log(result)
 }).catch(function(error) {
   console.log(error)
