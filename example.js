@@ -38,4 +38,10 @@ sightengine.check(['nudity', 'type', 'properties','wad','faces']).video('http://
   console.log(error)
 });
 
+sightengine.check(['nudity', 'type', 'properties','wad','faces']).video_sync('http://www.quirksmode.org/html5/videos/big_buck_bunny.webm').then(function(result) {
+  console.log(result)
+}).catch(function(error) {
+  console.log(error)
+});
+
 

@@ -92,5 +92,16 @@ describe('video moderation', () => {
   })
 })
 
+describe('video sync moderation', () => {
+  it('should return success', () => {
+    return sightengine
+    .check(['nudity', 'wad', 'properties', 'type', 'face', 'celebrities'])
+    .video_sync('https://sightengine.com/assets/stream/examples/funfair.mp4')
+    .then(result => {
+      assert.equal('success', result.status)
+    })
+  })
+})
+
 
 

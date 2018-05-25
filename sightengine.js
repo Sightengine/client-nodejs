@@ -71,6 +71,18 @@ function makeClient(api_user, api_secret) {
     });
   };
 
+  client.video_sync = (video) => {
+    var url =  endpoint + '/1.0/video/check-sync.json';
+    const data = { 'stream_url': video, 'models': _models.join(), 'api_user': apiUser, 'api_secret': apiSecret };
+    const querystring = encodeQueryData(data);
+
+    return fetch(url + '?' + querystring, { headers: { 'user-agent': 'SE-SDK-NODEJS' + version} }).then((res) => {
+      return res.json();
+    }).catch((error) => {
+      return error;
+    });
+  };
+
   client.feedback = (model, modelClass, image) => {
     var url = endpoint + '1.0/feedback.json'
 

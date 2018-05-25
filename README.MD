@@ -118,6 +118,16 @@ sightengine.check(['nudity', 'wad']).video('http://www.quirksmode.org/html5/vide
 });
 ```
 
+You can also moderate a video synchronously. This only works for videos that are shorter than a minute.
+
+```javascript
+sightengine.check(['nudity', 'wad']).video_sync('http://www.quirksmode.org/html5/videos/big_buck_bunny.webm').then(function(result) {
+  // The result of the API
+}).catch(function(err) {
+  // Error
+});
+```
+
 # Feedback
 In order to report a misclassification, you need to report the image that was misclassified, the model that was run on this image (models are nudity, face, type, wad), and the correct class of the image.
 
