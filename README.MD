@@ -111,7 +111,7 @@ sightengine.check(['nudity', 'type', 'properties','wad','faces', 'celebrities'])
 The first step to detect nudity in a video stream is to submit the video stream to the API.
 
 ```javascript
-sightengine.check(['nudity', 'wad']).video('http://www.quirksmode.org/html5/videos/big_buck_bunny.webm', 'https://example.com/yourcallback').then(function(result) {
+sightengine.check(['nudity', 'wad']).video('https://sightengine.com/assets/stream/examples/funfair.mp4', 'https://example.com/yourcallback').then(function(result) {
   // The result of the API
 }).catch(function(err) {
   // Error
@@ -121,7 +121,7 @@ sightengine.check(['nudity', 'wad']).video('http://www.quirksmode.org/html5/vide
 You can also moderate a video synchronously. This only works for videos that are shorter than a minute.
 
 ```javascript
-sightengine.check(['nudity', 'wad']).video_sync('http://www.quirksmode.org/html5/videos/big_buck_bunny.webm').then(function(result) {
+sightengine.check(['nudity', 'wad']).video_sync('https://sightengine.com/assets/stream/examples/funfair.mp4').then(function(result) {
   // The result of the API
 }).catch(function(err) {
   // Error
