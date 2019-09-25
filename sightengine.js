@@ -3,9 +3,9 @@ const fs = require('fs');
 const FormData = require('form-data');
 const version = require('./package.json').version;
 
-function makeClient(api_user, api_secret) {
+function makeClient(api_user, api_secret, api_endpoint = 'https://api.sightengine.com/') {
   const client = {};
-  const endpoint = 'https://api.sightengine.com/';
+  const endpoint = api_endpoint;
   const apiUser = api_user;
   const apiSecret = api_secret;
   var _models = [];
