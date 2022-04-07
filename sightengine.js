@@ -83,6 +83,19 @@ function makeClient(api_user, api_secret) {
     });
   };
 
+  client.text = (text, lang, opt_countries, callback) => {
+    const url = endpoint + '/1.0/text/check.json';
+    const mode = _models?.[0] || 'standard';
+    const data = { text, lang, opt_countries, mode, 'callback_url': callback, 'api_user': apiUser, 'api_secret': apiSecret };
+    const querystring = encodeQueryData(data);
+
+    return fetch(url + '?' + querystring, { headers: { 'user-agent': 'SE-SDK-NODEJS' + version } }).then((res) => {
+      return res.json();
+    }).catch((error) => {
+      return error;
+    });
+  };
+
   client.feedback = (model, modelClass, image) => {
     var url = endpoint + '1.0/feedback.json'
 

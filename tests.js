@@ -103,5 +103,15 @@ describe('video sync moderation', () => {
   })
 })
 
-
-
+describe('text moderation', () => {
+  it('should return success', () => {
+    return sightengine
+      .check(['standard'])
+      .text('You are such a slut')
+      .then(result => {
+        assert.equal('success', result.status)
+        assert.equal('discriminatory', result?.profanity?.matches?.type)
+        assert.equal('slut', result?.profanity?.matches?.match)
+      })
+  })
+})
